@@ -15,12 +15,12 @@ const Champ = () => {
   const [skinclick, setSkinclick] = useState({ num: 0 });
 
   const ChampName = name.name;
-  const cmpUrl = "http://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/"; //챔프 url
-  const spellUrl = "http://ddragon.leagueoflegends.com/cdn/13.1.1/img/spell/"; //스킬 url
+  const cmpUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/"; //챔프 url
+  const spellUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/spell/"; //스킬 url
   const passiveUrl =
-    "http://ddragon.leagueoflegends.com/cdn/13.1.1/img/passive/"; //패시브 url
+    "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/passive/"; //패시브 url
   const splashUrl =
-    "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"; //일러스트 url
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"; //일러스트 url
   //챔프 이름 ref으로 담기
   function Champion(ChampData) {
     dataRef.current = [ChampData.data];
@@ -59,7 +59,7 @@ const Champ = () => {
     console.log(skillclick.description.replace(/(<([^>]+)>)/gi, ""));
   useEffect(() => {
     fetch(
-      `http://ddragon.leagueoflegends.com/cdn/13.1.1/data/ko_KR/champion/${ChampName}.json` //누른 챔피언의 상세 api
+      `https://ddragon.leagueoflegends.com/cdn/13.1.1/data/ko_KR/champion/${ChampName}.json` //누른 챔피언의 상세 api
     )
       .then((Response) => Response.json())
       .then((Response) => Champion(Response));
