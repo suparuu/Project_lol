@@ -15,10 +15,10 @@ const Champ = () => {
   const [skinclick, setSkinclick] = useState({ num: 0 });
 
   const ChampName = name.name;
-  const cmpUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/"; //챔프 url
-  const spellUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/spell/"; //스킬 url
+  const cmpUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/"; //챔프 urlㅁㄴㅇㄻㄴㅇㄻㄴㅇㄹ
+  const spellUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/spell/"; //스킬 urlㄹㄴㅇㄻㅇㄴㄻㄴㅇㄹ
   const passiveUrl =
-    "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/passive/"; //패시브 url
+    "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/passive/"; //패시브 url아 깃왜안대 시바
   const splashUrl =
     "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"; //일러스트 url변경사항
   //챔프 이름 ref으로 담기

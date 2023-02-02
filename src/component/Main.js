@@ -6,7 +6,7 @@ import "../css/Main.scss";
 const Main = () => {
   useEffect(() => {
     fetch(
-      "https://ddragon.leagueoflegends.com/cdn/13.1.1/data/ko_KR/champion.json" //챔프 전체 데이터api
+      "https://ddragon.leagueoflegends.com/cdn/13.1.1/data/ko_KR/champion.json" //챔프 전체 데이터apiㅁㄴㅇㅁㄴㅇ
     )
       .then((Response) => Response.json())
       .then((Response) => lolMain(Response))
