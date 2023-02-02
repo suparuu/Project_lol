@@ -15,12 +15,12 @@ const Champ = () => {
   const [skinclick, setSkinclick] = useState({ num: 0 });//스킨클릭
 
   const ChampName = name.name;
-  const cmpUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/"; //챔프 urlㅁㄴㅇㄻㄴㅇㄻㄴㅇㄹ
-  const spellUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/spell/"; //스킬 urlㄹㄴㅇㄻㅇㄴㄻㄴㅇㄹ
+  const cmpUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/"; //챔프 url
+  const spellUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/spell/"; //스킬 url
   const passiveUrl =
-    "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/passive/"; //패시브 url아 깃왜안대 시바
+    "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/passive/"; //패시브 url
   const splashUrl =
-    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"; //일러스트 url변경사항ddddd
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"; //일러스트 url변경사항
   //챔프 이름 ref으로 담기
   function Champion(ChampData) {
     dataRef.current = [ChampData.data];
@@ -163,11 +163,7 @@ const Champ = () => {
               })}
           </div>
           <div className="skinshow03">
-            <img
-              src={`${splashUrl}${cmpEnname.current}_${
-                skinclick && skinclick.num
-              }.jpg`}
-            ></img>
+            <img src={`${splashUrl}${cmpEnname.current}_${skinclick && skinclick.num}.jpg`}></img>
           </div>
         </section>
       </>
