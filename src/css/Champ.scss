@@ -78,13 +78,14 @@ h2 {
     justify-content: center;
     align-items: center;
     position: relative;
-    
+
     .textbox01 {
       position: absolute;
       display: flex;
       align-items: center;
       justify-content: center;
-      .textbox02{
+      width: 100%;
+      .textbox02 {
         width: 100%;
       }
 
@@ -94,41 +95,39 @@ h2 {
     }
   }
 }
-.skinbox{
+.skinbox {
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
   overflow: hidden;
   height: 65vh;
-  .skinshow01{
+  .skinshow01 {
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 30%;
-    .skinshow02{
+    .skinshow02 {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
       color: #fff;
-      img{
+      img {
         width: 30%;
       }
-      p{
+      p {
         width: 100%;
         text-align: center;
       }
     }
   }
 
-    .skinshow03{
-      width: 70%;
-      position: relative;
-      img{
-        width: 100%;
-        position: absolute;
-      }
+  .skinshow03 {
+    width: 70%;
+    position: relative;
+    img {
+      width: 100%;
+      position: absolute;
     }
-
-
+  }
 }
