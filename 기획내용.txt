@@ -1,0 +1,47 @@
+역할군 {Tank:탱커 Fighter:전사 Marksman:원거리 딜러 Mage:마법사  
+Assassin:암살자 Support:서포터} 
+js파일 분류를 역할군으로 나누자 . 
+
+나눈 역할군으로 
+캐릭터 설명 내용{blurb:캐릭터 설명, name:캐릭터 이름, partype:사용 자원, stats: 기초스텟, 
+ title: 캐릭터 닉네임} 
+내용 정리 
+ 
+헤더에 라우터 이용해서 링크 걸어놓기 
+
+롤 인벤 체크박스 형식 
+
+이미지 호버했을때 설명 나오게끔 
+
+클릭했을때는 상세설명 
+
+2023-01-26
+
+챔피언 큰사진 배경
+
+챔피언 작은 사이즈, 이름, 별명
+
+챔피언 배경? 설명 ? 
+
+
+
+
+https://m.blog.naver.com/ogane53/222035319897 << json 참고
+
+각 챔피언 제이슨 파일 안에 들어갈 내용들
+image:이미지 작은거 큰거 
+lore: 챔프 배경
+passive:패시브 스킬
+spells:액티브 스킬 [
+    {
+        name: 스킬이름
+        description: 스킬설명
+        tooltip: 스킬 상세설명 << 보류
+        
+    }
+]
+
+
+챔피언 상세 설명 background-color: rgb(0,0,19);
+
+이미지 에다가는  filter: blur(8px); 
