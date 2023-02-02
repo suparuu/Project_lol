@@ -1,6 +1,9 @@
 import "./css/App.scss";
 import Champ from "./component/Champ";
 import Main from "./component/Main";
+import $ from "jquery"
+import ReactPlayer from 'react-player/youtube'
+import logo from '../src/lol_logo.png'
 /* import Assassin from "./component/Assassin";
 import Mage from "./component/Mage";
 import Support from "./component/Support";
@@ -10,9 +13,27 @@ import Fighter from "./component/Fighter"; */
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function App() {
-  return (
     
+    const videooff = () =>{
+        $('.video').remove()
+    }
+    const videostyle = {
+        width: "100%",
+        height: "100vh"
+    }
 
+    const logostyle={
+
+    }
+
+    
+  return (
+    <>
+    <section className="video" style={{margin:"0 auto"}}>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/r6zIGXun57U?autoplay=1&mute=1;" 
+     title="YouTube video player"  allow="accelerometer;   clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+       ></iframe>
+  </section>
 
 
 
@@ -20,7 +41,7 @@ function App() {
       <header>
         
         <div className="role">
-          <Link to="/Main">롤 챔피언 소개</Link>
+          <Link to="/Main" onClick={videooff}><img src={logo} style={{width:"200px"}}></img></Link>
           {/* <Link to="/Marksman">원거리 딜러</Link>
           <Link to="/Tank">탱커</Link>
           <Link to="/Mage">마법사</Link>
@@ -45,6 +66,9 @@ function App() {
         </Routes>
 
     </BrowserRouter> 
+
+</>
+
     
   );
 }

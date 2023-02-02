@@ -28,6 +28,8 @@ const Main = (props) => {
   const [test, setTest] = useState([]);
   const [aaa, setAaa] = useState();
   const data1 = useRef("0");
+  const [text,setText] = useState('');
+  console.log(text);
 
   function lolMain(test) {
     const champ = test.data;
@@ -48,7 +50,26 @@ const Main = (props) => {
     setTest(ChampName);
     setAaa(champ);
     console.log(test,'aa')
-  }
+
+    const searchSpace=(e)=>{
+        let keyword = e.target.value;
+        this.setText({})
+    }//검색기능 함수
+    
+    /* const serachOn=()=>{
+        if(text === null || text === ''){
+        }
+        else{
+            const filtText = ChampName.filter((obj)=>obj.id == searchSpace)
+            setText(filtText)
+            console.log(text,'실험')
+        }
+    
+} */
+
+
+}
+console.log(text)
 
   return (
     <>
@@ -64,7 +85,8 @@ const Main = (props) => {
           <Route path="/Champ/:name" element={<Champ  />}></Route>
           <Route path="Asdf" element={<Asdf  test={test} setTest={setTest} porps={props} aaa={aaa} setAaa={setAaa}/>}></Route>
         </Routes>
-        <input></input>
+        <input value={text} type="text" onChange={(e)=>{setText(e.target.value)}}></input>
+        <button onClick={''}>검색</button>
     <section className="champions">
         <div className="champbox01">
       {test &&

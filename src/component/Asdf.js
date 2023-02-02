@@ -4,11 +4,9 @@ import { useState, useRef, useEffect } from "react";
 const Asdf = (mprops) => {
     //Marksman 데이터 뿌리기 연습
     const [ccc,setCcc] = useState();
-    console.log('bbbb')
-    console.log([mprops.aaa])
-    console.log(mprops.test)
+
     const maptest = mprops.test
-    console.log(maptest)
+    
     maptest&&maptest.map((obj)=>{
         if(obj.tags=='Marksman'){
             console.log(`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${obj.en}.png`,obj.kr)

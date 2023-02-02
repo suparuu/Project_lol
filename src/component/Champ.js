@@ -89,6 +89,7 @@ const Champ = () => {
       <>
         <section className="champbox02">
           <div className="cmpimgBack">
+            
             <img
               className="frontimg"
               src={`${Bigimg.current && Bigimg.current}`}
