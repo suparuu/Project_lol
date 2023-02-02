@@ -6,13 +6,13 @@ const Champ = () => {
   let name = useParams();
   const dataRef = useRef();
   const Bigimg = useRef(); //큰 챔피언 사진
-  const cmpEnname = useRef();
-  const cmpKrname = useRef();
+  const cmpEnname = useRef();//영어이름
+  const cmpKrname = useRef();//한글이름
   const [qwer, setQwer] = useState(); //qwer스킬 데이터
-  const [skilldata, setSkilldata] = useState();
-  const [skindata, setSkindata] = useState();
-  const [skillclick, setSkillclick] = useState();
-  const [skinclick, setSkinclick] = useState({ num: 0 });
+  const [skilldata, setSkilldata] = useState();//스킬 데이터
+  const [skindata, setSkindata] = useState();//스킨 데이터
+  const [skillclick, setSkillclick] = useState();//스킬클릭
+  const [skinclick, setSkinclick] = useState({ num: 0 });//스킨클릭
 
   const ChampName = name.name;
   const cmpUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/"; //챔프 urlㅁㄴㅇㄻㄴㅇㄻㄴㅇㄹ
