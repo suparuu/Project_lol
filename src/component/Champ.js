@@ -20,7 +20,7 @@ const Champ = () => {
   const passiveUrl =
     "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/passive/"; //패시브 url
   const splashUrl =
-    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"; //일러스트 url
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"; //일러스트 url변경사항
   //챔프 이름 ref으로 담기
   function Champion(ChampData) {
     dataRef.current = [ChampData.data];
