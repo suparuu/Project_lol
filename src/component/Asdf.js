@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useRef, useEffect } from "react";
 
 const Asdf = (mprops) => {
-    //Marksman 데이터 뿌리기 연습
+    //Marksman 데이터 뿌리기 연습ss
     const [ccc,setCcc] = useState();
 
     const maptest = mprops.test
