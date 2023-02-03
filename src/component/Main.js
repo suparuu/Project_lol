@@ -62,7 +62,7 @@ const Main = (props) => {
         else{
             const filtText = ChampName.filter((obj)=>obj.id == searchSpace)
             setText(filtText)
-            console.log(text,'실험')
+            console.log(text,'실험')//
         }
     
 } */
