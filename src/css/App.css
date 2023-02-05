@@ -10,8 +10,7 @@ header {
   text-align: center;
 }
 header a {
-  -webkit-text-decoration-line: none;
-          text-decoration-line: none;
+  text-decoration-line: none;
 }
 header .role {
   font-size: 30px;

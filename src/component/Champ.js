@@ -13,6 +13,7 @@ const Champ = () => {
   const [skindata, setSkindata] = useState();//스킨 데이터
   const [skillclick, setSkillclick] = useState();//스킬클릭
   const [skinclick, setSkinclick] = useState({ num: 0 });//스킨클릭
+  const testH = useRef();//이미지 높이값
 
   const ChampName = name.name;
   const cmpUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/"; //챔프 url
@@ -35,28 +36,20 @@ const Champ = () => {
     const splash = splashUrl + datas[ChampName].id + "_0.jpg";
     Bigimg.current = splash;
     setQwer(datas[ChampName]);
-    console.log(datas[ChampName].spells[0].description, "스킬 설명");
-    console.log(datas[ChampName].spells[0].name, "스킬 이름");
-    console.log(datas[ChampName].spells[0].cooldownBurn, "스킬 쿨타임");
-    console.log(datas[ChampName].spells[0].costBurn, "소모값");
-    console.log(datas[ChampName].spells[0].rangeBurn, "스킬 범위");
-    console.log(datas[ChampName].passive, "패시브스킬");
     const spelldata = datas[ChampName].spells;
     console.log(spelldata, "asdsda");
     setSkilldata(spelldata);
-    console.log(skilldata, "챔피언 스킬 데이터");
-    console.log(qwer, "챔피언 스킬 데이터2 스테이트 함수");
 
-    console.log(datas[ChampName].id, "챔피언 영문이름");
-    console.log(datas[ChampName].skins[1].num, "스킨 num값");
     const skindata = datas[ChampName].skins;
     setSkindata(skindata);
     console.log(skindata, "당장필요한거"); //스킨 담겨있는 배열
-    console.log(Bigimg.current, "gdgdgsdgwd");
     setSkillclick(datas[ChampName].passive);
-  }
-  skillclick &&
-    console.log(skillclick.description.replace(/(<([^>]+)>)/gi, ""));
+}
+useEffect(()=>{
+    document.onreadystatechange =()=>{
+        console.log(testH.current.clientHeight)
+    }
+},[])
   useEffect(() => {
     fetch(
       `https://ddragon.leagueoflegends.com/cdn/13.1.1/data/ko_KR/champion/${ChampName}.json` //누른 챔피언의 상세 api
@@ -78,11 +71,11 @@ const Champ = () => {
       rangeBurn: skilldata[num].rangeBurn,
     });
   }
-
   function clickskin(key) {
     setSkinclick({ num: skindata[key].num, name: skindata[key].name });
     console.log(skinclick, "실행되나용");
   }
+    
   skindata && console.log(skindata);
   return (
     qwer && (
@@ -164,7 +157,7 @@ const Champ = () => {
               })}
           </div>
           <div className="skinshow03">
-            <img src={`${splashUrl}${cmpEnname.current}_${skinclick && skinclick.num}.jpg`}></img>
+            <img testH={testH} src={`${splashUrl}${cmpEnname.current}_${skinclick && skinclick.num}.jpg`}></img>
           </div>
         </section>
       </>

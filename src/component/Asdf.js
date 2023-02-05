@@ -6,12 +6,22 @@ const Asdf = (mprops) => {
     const [ccc,setCcc] = useState();
 
     const maptest = mprops.test
+    console.log(maptest)
+    maptest&&maptest.filter((obj)=>{
+        if(obj.tags == 'Marksman'){
+            console.log(' 원딜')
+        }
+        if(obj.tags == 'Tanker'){
+            console.log('탱커')
+        }
+    })
     
     maptest&&maptest.map((obj)=>{
         if(obj.tags=='Marksman'){
             console.log(`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${obj.en}.png`,obj.kr)
         }
     })
+   
     return (
         <>
         <div>aaa</div>

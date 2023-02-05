@@ -1,4 +1,30 @@
-.champbox01 {
+main {
+  background-image: url("../../public/lolskin.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: fixed;
+}
+main .champions {
+  max-width: 1400px;
+  margin: 0 auto;
+  border: solid 1px #000;
+  border-radius: 25px;
+  background-color: rgba(214, 198, 198, 0.158);
+}
+main .champions .headbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .champions .headbox .buttonbox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+main .champions .champbox01 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.9375rem;
@@ -6,22 +32,38 @@
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+  overflow: auto;
+  height: 100vh;
 }
-.champbox01 a {
-  -webkit-text-decoration-line: none;
-          text-decoration-line: none;
+main .champions .champbox01 a {
+  text-decoration-line: none;
   text-align: center;
 }
-.champbox01 a .imgbox01 {
+main .champions .champbox01 a .imgbox01 {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.champbox01 a .imgbox01 span {
+main .champions .champbox01 a .imgbox01 img {
+  width: 100px;
+  height: 100px;
+}
+main .champions .champbox01 a .imgbox01 span {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 20px;
   width: 5rem;
   white-space: nowrap;
+}
+main .champions .champbox01::-webkit-scrollbar {
+  width: 8px;
+}
+main .champions .champbox01::-webkit-scrollbar-thumb {
+  height: 30%;
+  background-color: aqua;
+  border-radius: 10px;
+}
+main .champions .champbox01::-webkit-scrollbar-track {
+  background-color: rgba(214, 198, 198, 0.158);
 }/*# sourceMappingURL=Main.css.map */

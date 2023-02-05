@@ -29,6 +29,8 @@ const Main = (props) => {
   const [aaa, setAaa] = useState();
   const data1 = useRef("0");
   const [text,setText] = useState('');
+  const [role,setRole] = useState();
+  
   console.log(text);
 
   function lolMain(test) {
@@ -68,17 +70,12 @@ const Main = (props) => {
 } */
 
 
+
 }
 console.log(text)
 
   return (
     <>
-        <div className="headbox">
-            <button onClick={navigo}>연습 <Asdf/></button>
-            <Link to="Asdf">링크연습</Link>
-          
-
-        </div>
 
 <main>
         <Routes>
@@ -88,7 +85,22 @@ console.log(text)
         <input value={text} type="text" onChange={(e)=>{setText(e.target.value)}}></input>
         <button onClick={''}>검색</button>
     <section className="champions">
+    <div className="headbox">
+        <div className="buttonbox">
+        <button onClick={navigo}>연습 <Asdf/></button>
+            <button onClick={navigo}>연습 <Asdf/></button>
+            <button onClick={navigo}>연습 <Asdf/></button>
+            <button onClick={navigo}>연습 <Asdf/></button>
+            <button onClick={navigo}>연습 <Asdf/></button>
+            <button onClick={navigo}>연습 <Asdf/></button>
+        </div>
+            <div className="searchbox">
+        <input value={text} type="text" onChange={(e)=>{setText(e.target.value)}}></input>
+        <button onClick={''}>검색</button>
+            </div>
+        </div>
         <div className="champbox01">
+            
       {test &&
         test.map((obj) => {
           return (
