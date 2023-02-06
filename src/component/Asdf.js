@@ -4,14 +4,29 @@ import { useState, useRef, useEffect } from "react";
 const Asdf = (mprops) => {
     //Marksman 데이터 뿌리기 연습ss
     const [ccc,setCcc] = useState();
+    const [role,setRole] = useState();
+    console.log(role)
 
     const maptest = mprops.test
     console.log(maptest)
+
+    const test44 = ()=>{
+        maptest&&maptest.map((aa)=>{
+            aa.tags.map((bb)=>{
+                if(bb == 'Tank'){
+                    console.log(ccc)
+                    
+                }
+            })
+        })
+    }
+    test44()
+    console.log(ccc,"state")
     maptest&&maptest.filter((obj)=>{
         if(obj.tags == 'Marksman'){
-            console.log(' 원딜')
+            console.log('원딜')
         }
-        if(obj.tags == 'Tanker'){
+        if(obj.tags == 'Tank'){
             console.log('탱커')
         }
     })
@@ -28,7 +43,7 @@ const Asdf = (mprops) => {
         <div className="imgbox02" style={{display:"flex",justifyContent:"center"}}>
         {
             maptest&&maptest.map((obj)=>{
-                if(obj.tags == 'Marksman'){
+                if(obj.tags == 'Mage'){
                     {console.log(obj.tags)}
                     return(
                         <>

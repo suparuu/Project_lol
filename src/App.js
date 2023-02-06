@@ -2,7 +2,6 @@ import "./css/App.scss";
 import Champ from "./component/Champ";
 import Main from "./component/Main";
 import $ from "jquery"
-import ReactPlayer from 'react-player/youtube'
 import logo from '../src/lol_logo.png'
 /* import Assassin from "./component/Assassin";
 import Mage from "./component/Mage";
@@ -31,7 +30,7 @@ function App() {
     <>
     <section className="video" style={{margin:"0 auto"}}>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/r6zIGXun57U?autoplay=1&mute=1;" 
-     title="YouTube video player"  allow="accelerometer;   clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+     title="YouTube video player"  allow="fullscreen;   clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
        ></iframe>
   </section>
 
