@@ -7,29 +7,19 @@ const Asdf = (mprops) => {
     const [role,setRole] = useState();
 
     const maptest = mprops.test5//챔프 이름 태그명
-    console.log(maptest)
-
-
-   
-    console.log(ccc)
     const tagname = ["Marksman","Tank","Mage","Fighter","Assassin","Support"]
-    const testEvent = ()=>{
-        setRole(tagname)
-        console.log(tagname)
-    }
-    
-
+   
     /* maptest&&maptest.filter((obj)=>{
         if(obj.tags == tagname){
             console.log('원딜')
         }
     }) */
     
-   /*  maptest&&maptest.map((obj)=>{
+    maptest&&maptest.map((obj)=>{
         if(obj.tags=='Marksman'){
             console.log(`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${obj.en}.png`,obj.kr)
         }
-    }) */
+    })
      const test44 = ()=>{
         maptest&&maptest.map((aa)=>{
             aa.tags.map((bb)=>{

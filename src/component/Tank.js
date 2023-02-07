@@ -4,18 +4,6 @@ const Tank = () => {
   return (
     <>
     <div>Tank</div>
-    <div>Tank</div>
-    <div>Tank</div>
-    <div>Tank</div>
-    <div>Tank</div>
-    <div>Tank</div>
-    <div>Tank</div>
-    <div>Tank</div>
-    <div>Tank</div>
-    <div>Tank</div>
-    <div>Tank</div>
-    <div>Tank</div>
-    <div>Tank</div>
     </>
   )
 }

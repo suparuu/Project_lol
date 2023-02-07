@@ -8,6 +8,7 @@ import Tank from "./Tank";
 import Marksman from "./Marksman";
 import Fighter from "./Fighter";
 import Asdf from "./Asdf";
+import axios from 'axios';
 
 import "../css/Main.scss";
 
@@ -24,10 +25,16 @@ const Main = (props) => {
       .then((Response) => lolMain(Response))
       .catch((err) => console.error(err));
   }, []);
+
+      /* axios.get("https://ddragon.leagueoflegends.com/cdn/13.1.1/data/ko_KR/champion.json")//챔프 전체 데이터api
+      .then((Response)=>lolMain(Response))
+      .catch((error)=>{console.log(error)}) */
+
+
+  const [catestate,setCatestate] = useState();
   const [test5, setTest5] = useState([]);//챔프 이름,영문,태그명
   const [aaa, setAaa] = useState();
   const data1 = useRef("0");
-  const [text, setText] = useState("");
   const [role, setRole] = useState();
 //const[t,setT]
 
@@ -56,14 +63,19 @@ const Main = (props) => {
       let keyword = e.target.value;
       this.setText({});
     }; //검색기능 함수
-
     console.log(ChampName,'챔프 이름,영문,태그명');
-    
-    const aaaaa = ChampName.find((obj,key)=>{
+    console.log(test5)
+   /*  const aaaa = () =>{
 
-    })
+        test5&&test5.map((obj)=>{
+            obj.tags.map((obj2)=>{
+                console.log(obj2)
+            })
+        })
+    }
+    aaaa() */
     
-
+    
     /* const serachOn=()=>{
         if(text === null || text === ''){
         }
@@ -74,57 +86,72 @@ const Main = (props) => {
         }
     
 } */
-//버튼을 클릭 했을때 , 클릭한 버튼의 이름이 예를들어 탱커다 
-// 그럼 스테이트에 탱커 이름을 담아서
-console.log(role,"머들엇음?")
 
-  }
+  }//Main
   const tagname = ["Marksman","Tank","Mage","Fighter","Assassin","Support"]
  
-  console.log(role,"머들엇음?")
-
-  console.log(aaa)
-  console.log(test5)
-  function asdf(){
-    test5&&test5.map((obj)=>{
-
-                if(obj.tags== tagname[5]){
-                    console.log(obj.tags)
-                }
-    })
+ 
+  const category = (tags) =>{
+    if(tags == "전체보기"){
+        setCatestate(test5)
+        console.log('전체보기',catestate)
+    }else{
+        setCatestate(test5.filter((d)=>{
+            return d.tags == tags
+        }))
+    }//카테고리 함수
+    
+    console.log(tags)
+    console.log(catestate)
   }
-  asdf()
+
+  const [text, setText] = useState("");
+  const [asdf,setAsdf]= useState();
+
+  console.log(text,'채팅')
+  console.log(test5)
+  /* const items = catestate.filter((data)=>{
+    data.kr.includes(text)
+  })
+  setAsdf(items)
+  console.log(asdf) */
+ /*  catestate.map((obj)=>{
+    obj.filter((obj2)=>{
+        console.log(obj2)
+
+    })
+  }) */
+
+  console.log(catestate)
+
   return (
     <>
       <main>
         <Routes>
           <Route path="/Champ/:name" element={<Champ />}></Route>
           <Route path="/Asdf" element={<Asdf test5={test5} setTest5={setTest5} props={props} aaa={aaa} setAaa={setAaa} role={role} setRole={setRole}/>}></Route>
-          <Route path="Tank" element={<Tank />}></Route>
 
         </Routes>
         <section className="champions">
           <div className="headbox">
             <div className="buttonbox">
-              <button onClick={setRole}>연습 <Asdf /></button>
-              <button onClick={navigo}>스테이트</button>
-              <button onClick={navigo}>연습 </button>
-              <button onClick={navigo}>연습 </button>
+              <button onClick={()=>{category("전체보기")}}>전체보기</button>
+              <button onClick={()=>{category("Mage")}}>법사</button>
+              <button onClick={()=>{category("Tank")}}>태ㅔㅇ크 </button>
+              <button onClick={()=>{category("Fighter")}}>브루저</button>
+              <button onClick={()=>{category("Assassin")}}>암살자</button>
+              <button onClick={()=>{category("Support")}}>사퍼타</button>
+              <button onClick={()=>{category("Marksman")}}>원딜</button>
             </div>
             <div className="searchbox">
-              <input
-                value={text}
-                type="text"
-                onChange={(e) => {
-                  setText(e.target.value);
-                }}
-              ></input>
-              <button onClick={""}>검색</button>
+              <input  value={text} type="text" onChange={(e) => { setText(e.target.value)}}></input>
+              {
+              }
+              <button onClick={''}>검색</button>
             </div>
           </div>
           <div className="champbox01">
-          <Tank />
-            {test5 &&
+            {/* {test5 &&
               test5.map((obj) => {
                   return (
                     <Link to={`/Champ/${obj.en}`}>
@@ -136,7 +163,29 @@ console.log(role,"머들엇음?")
                       </div>
                     </Link>
                   );
-              })}
+              })} */}
+            {/* {catestate&&catestate.map((obj)=>{
+                return(
+                    <Link to={`/Champ/${obj.en}`}>
+                    <div className="imgbox01">
+                        <img src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${obj.en}.png`}></img>
+                        <span>{[obj.kr]}</span>
+                      </div>
+                    </Link>
+
+                )
+            })} */}
+            {catestate&&catestate.map((obj)=>{
+                return(
+                    <Link to={`/Champ/${obj.en}`}>
+                    <div className="imgbox01">
+                        <img src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${obj.en}.png`}></img>
+                        <span>{[obj.kr]}</span>
+                      </div>
+                    </Link>
+
+                )
+            })}
           </div>
         </section>
       </main>
