@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../css/Champ.scss";
+import $ from 'jquery'
 
 const Champ = () => {
   let name = useParams();
@@ -75,6 +76,15 @@ useEffect(()=>{
     setSkinclick({ num: skindata[key].num, name: skindata[key].name });
     console.log(skinclick, "실행되나용");
   }
+  console.log($('.skinshow01').height())
+  let skinheight = $('.skinshow02').height();//스킨+이름 높이
+  let hiddenH = $('.skinshow03 img').height();//스킨이미지 높이
+
+  console.log(skinheight,'asdasdasd')
+  function csstest(){
+    $('.skinshow01').css('transform',`translateY(-${skinheight}px)`).css('transition','1s')
+  }
+
     
   skindata && console.log(skindata);
   return (
@@ -141,8 +151,8 @@ useEffect(()=>{
         </section>
 
         <h2>챔피언 스킨</h2>
-        <section className="skinbox">
-          <div className="skinshow01">
+        <section className="skinbox" style={{height:hiddenH}}>
+          <div className="skinshow01" onClick={csstest} >
             {skindata &&
               skindata.map((obj, key) => {
                 return (
@@ -155,7 +165,8 @@ useEffect(()=>{
                   </div>
                 );
               })}
-          </div>
+
+            </div>
           <div className="skinshow03">
             <img testH={testH} src={`${splashUrl}${cmpEnname.current}_${skinclick && skinclick.num}.jpg`}></img>
           </div>

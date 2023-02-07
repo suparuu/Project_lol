@@ -24,13 +24,12 @@ const Main = (props) => {
       .then((Response) => lolMain(Response))
       .catch((err) => console.error(err));
   }, []);
-  const [test, setTest] = useState([]);
+  const [test5, setTest5] = useState([]);//챔프 이름,영문,태그명
   const [aaa, setAaa] = useState();
   const data1 = useRef("0");
   const [text, setText] = useState("");
   const [role, setRole] = useState();
 //const[t,setT]
-  console.log(text);
 
   function lolMain(test) {
     const champ = test.data;
@@ -45,22 +44,24 @@ const Main = (props) => {
         tags: champ[name].tags,
       });
     } //영문이름,한글이름
-    console.log(champ);
-    console.log(ChampName);
+    console.log(champ,'챔프데이터');
 
     ChampName.sort(function (a, b) {
       return a.kr < b.kr ? -1 : a.kr > b.kr ? 1 : 0;
     }); //가나다순 함수
-
-    setTest(ChampName);
+    setTest5(ChampName);
     setAaa(champ);
-    console.log(test, "aa");
 
     const searchSpace = (e) => {
       let keyword = e.target.value;
       this.setText({});
     }; //검색기능 함수
-    const tagname = ["Marksman","Tank","Mage","Fighter","Assassin","Support"]
+
+    console.log(ChampName,'챔프 이름,영문,태그명');
+    
+    const aaaaa = ChampName.find((obj,key)=>{
+
+    })
     
 
     /* const serachOn=()=>{
@@ -73,51 +74,42 @@ const Main = (props) => {
         }
     
 } */
-  }
-  console.log(text);
-  console.log(role,'setrole')
+//버튼을 클릭 했을때 , 클릭한 버튼의 이름이 예를들어 탱커다 
+// 그럼 스테이트에 탱커 이름을 담아서
+console.log(role,"머들엇음?")
 
+  }
+  const tagname = ["Marksman","Tank","Mage","Fighter","Assassin","Support"]
+ 
+  console.log(role,"머들엇음?")
+
+  console.log(aaa)
+  console.log(test5)
+  function asdf(){
+    test5&&test5.map((obj)=>{
+
+                if(obj.tags== tagname[5]){
+                    console.log(obj.tags)
+                }
+    })
+  }
+  asdf()
   return (
     <>
       <main>
         <Routes>
           <Route path="/Champ/:name" element={<Champ />}></Route>
-          <Route
-            path="Asdf"
-            element={
-              <Asdf
-                test={test}
-                setTest={setTest}
-                props={props}
-                aaa={aaa}
-                setAaa={setAaa}
-                role={role}
-                setRole={setRole}
-              />
-            }
-          ></Route>
+          <Route path="/Asdf" element={<Asdf test5={test5} setTest5={setTest5} props={props} aaa={aaa} setAaa={setAaa} role={role} setRole={setRole}/>}></Route>
+          <Route path="Tank" element={<Tank />}></Route>
+
         </Routes>
         <section className="champions">
           <div className="headbox">
             <div className="buttonbox">
-              <button onClick={setRole}>
-                연습 <Asdf />
-              </button>
-              <button onClick={navigo}>
-                연습 <Asdf />
-              </button>
-              <button onClick={navigo}>
-                연습 <Asdf />
-              </button>
-              <button onClick={navigo}>
-                연습 <Asdf />
-              </button>
-              <button onClick={navigo}>
-                연습 <Asdf />
-              </button>
-              <button onClick={navigo}>
-                연습 <Asdf />
-              </button>
+              <button onClick={setRole}>연습 <Asdf /></button>
+              <button onClick={navigo}>스테이트</button>
+              <button onClick={navigo}>연습 </button>
+              <button onClick={navigo}>연습 </button>
             </div>
             <div className="searchbox">
               <input
@@ -131,9 +123,9 @@ const Main = (props) => {
             </div>
           </div>
           <div className="champbox01">
-            {test &&
-              test.map((obj) => {
-                console.log(obj.tags,'aa')
+          <Tank />
+            {test5 &&
+              test5.map((obj) => {
                   return (
                     <Link to={`/Champ/${obj.en}`}>
                       <div className="imgbox01">

@@ -28,12 +28,12 @@ function App() {
     
   return (
     <>
-    <section className="video" style={{margin:"0 auto"}}>
+   {/*  <section className="video" style={{margin:"0 auto"}}>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/r6zIGXun57U?autoplay=1&mute=1;" 
      title="YouTube video player"  allow="fullscreen;   clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
        ></iframe>
   </section>
-
+ */}
 
 
      <BrowserRouter>

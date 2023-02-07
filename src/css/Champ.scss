@@ -100,28 +100,28 @@ h2 {
   margin: 0 auto;
   display: flex;
   overflow: hidden;
-  height: 65vh;
-  .skinshow01 {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 30%;
-    gap: 50px;
-    overflow: hidden;
-    .skinshow02 {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      color: #fff;
-      img {
+      .skinshow01 {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         width: 30%;
-      }
-      p {
-        width: 100%;
-        text-align: center;
-      }
-    }
+        overflow: hidden;
+        .skinshow02 {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          color: #fff;
+          height: 100px;
+          img {
+            width: 30%;
+          }
+          p {
+            width: 100%;
+            text-align: center;
+          }
+        }
+
   }
 
   .skinshow03 {
