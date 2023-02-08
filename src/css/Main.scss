@@ -1,18 +1,25 @@
+@font-face {
+  font-family: 'GangwonEdu_OTFBoldA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+html,body,button{
+  font-family: 'GangwonEdu_OTFBoldA';
+}
 
 main{
     background-image: url("../../public/lolskin.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
     height: 100vh;
-       position: fixed;
+    position: fixed;
 
     
     .champions{
         max-width: 1400px;
         margin: 0 auto;
-        border: solid 1px #000;
         border-radius: 25px;
-        background-color: rgba(214, 198, 198, 0.158);
+        background-color: rgb(189 107 107 / 30%);
         margin-top: 6.25rem;
         .headbox{
             display: flex;
@@ -24,14 +31,47 @@ main{
                 display: flex;
                 align-items: center;
                 justify-content: space-evenly;
+                button{
+                  border-radius: 15px;
+                  background: none;
+                  cursor: pointer;
+                  font-size: 20px;
+                  margin: 0 auto;
+                  &:hover{
+                    background-color: rgb(240, 96, 96);
+                    transition: 0.2s;
+                  }
+                }
             }
             
-        }
+          }
+          .searchbox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+            margin: 0 auto;
+            input{
+              border-radius: 25px;
+              background-color: rgba(236, 192, 192, 0.637);
+
+            }
+            button{
+              border-radius: 15px;
+              background: none;
+              cursor: pointer;
+              font-size: 20px;
+              &:hover{
+                background-color: rgb(240, 96, 96);
+                transition: 0.2s;
+              }
+            }
+          }
     
         .champbox01 {
           display: flex;
           flex-wrap: wrap;
-          gap: 0.9375rem;
+          gap: 1.9375rem;
           width: 100%;
           margin: 0 auto;
           align-items: center;
@@ -50,9 +90,12 @@ main{
               align-items: center;
              
               img{
-
                 width: 100px;
                 height: 100px;
+                &:hover{
+                  transform: scale(1.1);
+                  transition: 0.5s;
+                }
               }
                
         
@@ -63,6 +106,9 @@ main{
                 font-size: 20px;
                 width: 5rem;
                 white-space: nowrap;
+                color: #fff;
+                background-color: rgba(14, 4, 22, 0.281);
+                border-radius: 15px;
               }
             }
           }
@@ -71,14 +117,142 @@ main{
             width: 8px;
           }
           .champbox01::-webkit-scrollbar-thumb{
-            height: 30%;
-            background-color: aqua;
+            height: 20%;
+            background-color: #000;
             border-radius: 10px;
           }
           .champbox01::-webkit-scrollbar-track{
             background-color: rgba(214, 198, 198, 0.158);
+            border-radius: 10px;
           }
     
     }
+}
 
+@media screen and (min-width:390px) and (max-width:512px) {
+
+}
+html,body,button{
+  font-family: 'GangwonEdu_OTFBoldA';
+}
+
+main{
+    background-image: url("../../public/lolskin.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: fixed;
+
+    
+    .champions{
+        max-width: 1400px;
+        margin: 0 auto;
+        border-radius: 25px;
+        background-color: rgb(189 107 107 / 30%);
+        margin-top: 6.25rem;
+        .headbox{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .buttonbox{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                button{
+                  border-radius: 15px;
+                  background: none;
+                  cursor: pointer;
+                  font-size: 20px;
+                  margin: 0 auto;
+                  &:hover{
+                    background-color: rgb(240, 96, 96);
+                    transition: 0.2s;
+                  }
+                }
+            }
+            
+          }
+          .searchbox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+            margin: 0 auto;
+            input{
+              border-radius: 25px;
+              background-color: rgba(236, 192, 192, 0.637);
+
+            }
+            button{
+              border-radius: 15px;
+              background: none;
+              cursor: pointer;
+              font-size: 20px;
+              &:hover{
+                background-color: rgb(240, 96, 96);
+                transition: 0.2s;
+              }
+            }
+          }
+    
+        .champbox01 {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.9375rem;
+          width: 100%;
+          margin: 0 auto;
+          align-items: center;
+          justify-content: center;
+          overflow: auto;
+          height: 100vh;
+          
+          
+          a {
+            text-decoration-line: none;
+            text-align: center;
+        
+            .imgbox01 {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+             
+              img{
+                width: 100px;
+                height: 100px;
+                &:hover{
+                  transform: scale(1.1);
+                  transition: 0.5s;
+                }
+              }
+               
+        
+              span {
+                display: block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 20px;
+                width: 5rem;
+                white-space: nowrap;
+                color: #fff;
+                background-color: rgba(14, 4, 22, 0.281);
+                border-radius: 15px;
+              }
+            }
+          }
+        }
+        .champbox01::-webkit-scrollbar {
+            width: 8px;
+          }
+          .champbox01::-webkit-scrollbar-thumb{
+            height: 20%;
+            background-color: #000;
+            border-radius: 10px;
+          }
+          .champbox01::-webkit-scrollbar-track{
+            background-color: rgba(214, 198, 198, 0.158);
+            border-radius: 10px;
+          }
+    
+    }
 }
