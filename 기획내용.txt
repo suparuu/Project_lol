@@ -44,4 +44,8 @@ spells:액티브 스킬 [
 
 챔피언 상세 설명 background-color: rgb(0,0,19);
 
+
+
 이미지 에다가는  filter: blur(8px); 
+
+https://velog.io/@rkio/React-%EB%AC%B4%ED%95%9C-%EC%9E%90%EB%8F%99-%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0ft.-Typescript-Tailwind 
