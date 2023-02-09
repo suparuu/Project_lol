@@ -2,11 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../css/Champ.scss";
 import $ from "jquery";
-//
-import "react-image-gallery/styles/css/image-gallery.css";
-import ImageGallery from "react-image-gallery";
-//실험
-
 
 const Champ = () => {
   let name = useParams();
@@ -29,6 +24,8 @@ const Champ = () => {
   const splashUrl =
     "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"; //일러스트 url변경사항
   //챔프 이름 ref으로 담기
+  const thumb = document.querySelectorAll(".skinshow02 > div");
+
   function Champion(ChampData) {
     dataRef.current = [ChampData.data];
 
@@ -52,37 +49,21 @@ const Champ = () => {
     setSkillclick(datas[ChampName].passive);
   }
 
-
   useEffect(() => {
     document.onreadystatechange = () => {
       console.log(testH.current.clientHeight);
     };
 
-    
     //미디어 쿼리
-    /* function mdq(key){
-      let mq = window.matchMedia("(min-width:390px)");
-      mq.addListener((e) => {
-        if (e.matches) {
-          console.log("pc");
-        } else {
-    const thumb = document.querySelectorAll(".skinshow02 > div");
-    console.log(thumb,'모바일 확인')
-
-          $(".skinshow02").css({
-            transform: `translateY(-${thumb[key].offsetWidth}px)`,
-            transition: "0.5s",
-          });
-        }
-      });
-
-    } */
-
-
+    let Iphone13 = window.matchMedia("(min-width:512px)");
+    Iphone13.addListener((e) => {
+      if (e.matches) {
+        console.log("pc", thumb);
+      } else {
+        console.log("mob", thumb);
+      }
+    });
   }, []);
-
-
-
 
   useEffect(() => {
     fetch(
@@ -107,69 +88,42 @@ const Champ = () => {
     $(".textbox01").css({ opacity: "1", transition: "0.5s" });
   }
 
+   //미디어 쿼리
+  
+  function clickskin(key) {
+    setSkinclick({ num: skindata[key].num, name: skindata[key].name });
+    let Iphone13 = window.matchMedia("(min-width:512px)").matches;
+    const thumb = document.querySelectorAll(".skinshow02 > div");
 
-  function mdq(key){
-    let mq = window.matchMedia("(min-width:390px)");
-    mq.addListener((e) => {
-      if (e.matches) {
-        console.log("pc");
-      } else {
-  const thumb = document.querySelectorAll(".skinshow02 > div");
-  console.log(thumb,'모바일 확인')
-
+    console.log(thumb, "asdasd");
+      if (Iphone13 == true) {
+        console.log("pc", "119번째줄");
+        console.log("pc", thumb[key]);
         $(".skinshow02").css({
-          transform: `translateY(-${thumb[key].offsetWidth}px)`,
+          transform: `translateY(-${thumb[key].offsetTop}px)`,
+          transition: "0.5s",
+        });
+      } else {
+        console.log("mob", "121번째줄");
+        console.log(thumb[key].offsetLeft)
+        $(".skinshow02").css({
+          transform: `translateX(-${thumb[key].offsetLeft}px)`,
           transition: "0.5s",
         });
       }
-    });
-
+  
+   
   }
 
-  /* function clickskin(key) {
-    setSkinclick({ num: skindata[key].num, name: skindata[key].name });
-    const thumb = document.querySelectorAll(".skinshow02 > div");
-    let mq = window.matchMedia("(min-width:390px)");
-    mq.addListener((e)=>{
-      if (e.matches) {
-        console.log('pc',thumb,e)
-        $(".skinshow02").css({
-          transform: `translateY(-${thumb[key].offsetTop}px)`,
-          transition: "0.5s",
-        });
-        $(".skinshow03 img").css({ transition: "0.5s" });
-      }else{
-        
-        console.log('mob')
-        $(".skinshow02").css({
-          transform: `translateY(-${thumb[key].offsetWidth}px)`,
-          transition: "0.5s",
-        });
-      } */
-      function clickskin(key){
-        setSkinclick({ num: skindata[key].num, name: skindata[key].name });
-        const thumb = document.querySelectorAll(".skinshow02 > div");
+ 
 
-        $(".skinshow02").css({
-          transform: `translateY(-${thumb[key].offsetTop}px)`,
-          transition: "0.5s",
-        });
-        $(".skinshow03 img").css({ transition: "0.5s" });
-
-    console.log(skinclick, "실행되나용");
-      }
   console.log($(".skinshow01").height());
   let skinheight = $(".skinshow02").height(); //스킨+이름 높이
   let hiddenH = $(".skinshow03 img").height(); //스킨이미지 높이
 
-  console.log(skinheight, "asdasdasd");
-
-  skindata && console.log(skindata);
   return (
-    
     qwer && (
       <>
-       
         <section className="champbox02">
           <div className="cmpimgBack">
             <img
@@ -234,7 +188,7 @@ const Champ = () => {
         </section>
 
         <h2>챔피언 스킨</h2>
-        <section className="skinbox" style={{ height: hiddenH }}>
+        <section className="skinbox" /* style={{ height: hiddenH }} */>
           <div className="skinshow01">
             {/* <div className="skinshow02">
               {skindata && skindata.map((obj, key) => {
@@ -247,12 +201,16 @@ const Champ = () => {
                 })}
             </div> */}
             <div className="skinshow02">
-              {skindata && skindata.map((obj, key) => {
+              {skindata &&
+                skindata.map((obj, key) => {
                   return (
-                     <div key={key}>
-                      <img src={`${splashUrl}${cmpEnname.current}_${obj.num}.jpg`} onClick={() => clickskin(key)}></img>
+                    <div key={key}>
+                      <img
+                        src={`${splashUrl}${cmpEnname.current}_${obj.num}.jpg`}
+                        onClick={() => clickskin(key)}
+                      ></img>
                       <p>{obj.name.replaceAll("default", cmpKrname.current)}</p>
-                    </div> 
+                    </div>
                   );
                 })}
             </div>
