@@ -2,8 +2,12 @@ import { useState, useRef, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../css/Champ.scss";
 import $ from "jquery";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+//
+import "react-image-gallery/styles/css/image-gallery.css";
+import ImageGallery from "react-image-gallery";
+//실험
+
+
 const Champ = () => {
   let name = useParams();
   const dataRef = useRef();
@@ -165,14 +169,7 @@ const Champ = () => {
     
     qwer && (
       <>
-       <Swiper
-      spaceBetween={50}
-      slidesPerView={3}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      <SwiperSlide>Slide 1</SwiperSlide>
-    </Swiper>
+       
         <section className="champbox02">
           <div className="cmpimgBack">
             <img
@@ -239,54 +236,25 @@ const Champ = () => {
         <h2>챔피언 스킨</h2>
         <section className="skinbox" style={{ height: hiddenH }}>
           <div className="skinshow01">
-            <div className="skinshow02">
-              
-            <Swiper
-      spaceBetween={50}
-      slidesPerView={3}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      {skindata &&
-      skindata.map((obj, key) => {
-        return (
-        <SwiperSlide obj={obj} key={key} clickskill={clickskill} spellUrl={spellUrl}>
-                    <div key={key}>
-                      <img
-                        src={`${splashUrl}${cmpEnname.current}_${obj.num}.jpg`}
-                        onClick={() => clickskin(key)}
-                        key={key}
-                      ></img>
-                      <p>{obj.name.replaceAll("default", cmpKrname.current)}</p>
-                    </div>
-        </SwiperSlide>)})};
-     
-      </Swiper>
-
-
-
-            <Swiper
-      spaceBetween={50}
-      slidesPerView={3}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-              {skindata &&
-                skindata.map((obj, key) => {
-                  return (<SwiperSlide obj={obj} key={key} clickskill={clickskill} spellUrl={spellUrl}/>)
-                  console.log(obj,key,clickskill,spellUrl,'aasdadasdsadad')
-                  /* return (
-                    <div key={key}>
-                      <img
-                        src={`${splashUrl}${cmpEnname.current}_${obj.num}.jpg`}
-                        onClick={() => clickskin(key)}
-                        key={key}
-                      ></img>
-                      <p>{obj.name.replaceAll("default", cmpKrname.current)}</p>
-                    </div>
-                  ); */
+            {/* <div className="skinshow02">
+              {skindata && skindata.map((obj, key) => {
+                  return (
+                    <>
+                    <ImageGallery obj={obj} key={key} splashUrl={splashUrl} cmpEnname={cmpEnname} clickskin={clickskin}/>
+                    <p>{obj.name.replaceAll("default", cmpKrname.current)}</p>
+                    </>
+                  );
                 })}
-                </Swiper>
+            </div> */}
+            <div className="skinshow02">
+              {skindata && skindata.map((obj, key) => {
+                  return (
+                     <div key={key}>
+                      <img src={`${splashUrl}${cmpEnname.current}_${obj.num}.jpg`} onClick={() => clickskin(key)}></img>
+                      <p>{obj.name.replaceAll("default", cmpKrname.current)}</p>
+                    </div> 
+                  );
+                })}
             </div>
           </div>
           <div className="skinshow03">

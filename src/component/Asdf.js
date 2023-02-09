@@ -20,6 +20,8 @@ const Asdf = (mprops) => {
             console.log(`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${obj.en}.png`,obj.kr)
         }
     })
+
+    
      const test44 = ()=>{
         maptest&&maptest.map((aa)=>{
             aa.tags.map((bb)=>{

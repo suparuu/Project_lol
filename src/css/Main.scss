@@ -163,7 +163,7 @@ main{
                   border-radius: 15px;
                   background: none;
                   cursor: pointer;
-                  font-size: 20px;
+                  font-size: 16px;
                   margin: 0 auto;
                   &:hover{
                     background-color: rgb(240, 96, 96);
@@ -177,7 +177,7 @@ main{
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 40%;
+            width: 100%;
             margin: 0 auto;
             input{
               border-radius: 25px;
@@ -188,7 +188,7 @@ main{
               border-radius: 15px;
               background: none;
               cursor: pointer;
-              font-size: 20px;
+              font-size: 16px;
               &:hover{
                 background-color: rgb(240, 96, 96);
                 transition: 0.2s;

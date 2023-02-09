@@ -1,12 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Champ from "./Champ";
-import Assassin from "./Assassin";
-import Mage from "./Mage";
-import Support from "./Support";
-import Tank from "./Tank";
-import Marksman from "./Marksman";
-import Fighter from "./Fighter";
 import Asdf from "./Asdf";
 import axios from "axios";
 import "../css/Main.scss";
@@ -65,36 +59,8 @@ const Main = (props) => {
     }; //검색기능 함수
     // console.log(ChampName, "챔프 이름,영문,태그명");
 
-    /*  const aaaa = () =>{
-
-        test5&&test5.map((obj)=>{
-            obj.tags.map((obj2)=>{
-                console.log(obj2)
-            })
-        })
-    }
-    aaaa() */
-
-    /* const serachOn=()=>{
-        if(text === null || text === ''){
-        }
-        else{
-            const filtText = ChampName.filter((obj)=>obj.id == searchSpace)
-            setText(filtText)
-            console.log(text,'실험')//
-        }
-    
-} */
   } //Main
 
-  const tagname = [
-    "Marksman",
-    "Tank",
-    "Mage",
-    "Fighter",
-    "Assassin",
-    "Support",
-  ];
 
   const category = (tags) => {
     if (tags == "전체보기") {
