@@ -97,15 +97,11 @@ const Champ = () => {
 
     console.log(thumb, "asdasd");
       if (Iphone13 == true) {
-        console.log("pc", "119번째줄");
-        console.log("pc", thumb[key]);
         $(".skinshow02").css({
           transform: `translateY(-${thumb[key].offsetTop}px)`,
           transition: "0.5s",
         });
       } else {
-        console.log("mob", "121번째줄");
-        console.log(thumb[key].offsetLeft)
         $(".skinshow02").css({
           transform: `translateX(-${thumb[key].offsetLeft}px)`,
           transition: "0.5s",

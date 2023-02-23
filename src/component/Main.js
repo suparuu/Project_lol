@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Champ from "./Champ";
-import Asdf from "./Asdf";
 import axios from "axios";
 import "../css/Main.scss";
 
@@ -99,21 +98,6 @@ const Main = (props) => {
   };//엔터키 누를시 검색기능
 
 
- /*  useEffect(() => {
-    console.log(text2.current.value);
-    text2.current.focus();
-  }, []) */
-  /* const items = catestate.filter((data)=>{
-    data.kr.includes(text)
-  })
-  setAsdf(items)
-  console.log(asdf) */
-  /*  catestate.map((obj)=>{
-    obj.filter((obj2)=>{
-        console.log(obj2)
-
-    })
-  }) */
   
 
   console.log(catestate);
@@ -123,20 +107,6 @@ const Main = (props) => {
       <main>
         <Routes>
           <Route path="/Champ/:name" element={<Champ />}></Route>
-          <Route
-            path="/Asdf"
-            element={
-              <Asdf
-                test5={test5}
-                setTest5={setTest5}
-                props={props}
-                aaa={aaa}
-                setAaa={setAaa}
-                role={role}
-                setRole={setRole}
-              />
-            }
-          ></Route>
         </Routes>
         <section className="champions">
           <div className="headbox">

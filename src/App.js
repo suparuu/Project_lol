@@ -1,7 +1,6 @@
 import "./css/App.scss";
 import Champ from "./component/Champ";
 import Main from "./component/Main";
-import $ from "jquery"
 import logo from '../src/lol_logo.png'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
@@ -10,9 +9,6 @@ function App() {
     
   return (
     <>
- 
-
-
      <BrowserRouter>
       <header>
         <div className="role">
@@ -25,10 +21,7 @@ function App() {
           <Route path="/Champ/:name" element={<Champ  />}></Route>
         </Routes>
     </BrowserRouter> 
-
 </>
-
-    
   );
 }
 
