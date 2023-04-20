@@ -9,7 +9,7 @@ function App() {
     
   return (
     <>
-     <BrowserRouter>
+     {/* <BrowserRouter>
       <header>
         <div className="role">
           <Link to="/Main" ><img src={logo} style={{width:"200px"}}></img></Link>
@@ -18,6 +18,17 @@ function App() {
 
         <Routes>
           <Route path="/Main/*" element={<Main />}></Route>
+          <Route path="/Champ/:name" element={<Champ  />}></Route>
+        </Routes>
+    </BrowserRouter>  */}
+    <BrowserRouter>
+      <header>
+        <div className="role">
+          <Link to="/Main" ><img src={logo} style={{width:"200px"}}></img></Link>
+        </div>
+      </header>
+          <Main/>
+        <Routes>
           <Route path="/Champ/:name" element={<Champ  />}></Route>
         </Routes>
     </BrowserRouter> 
