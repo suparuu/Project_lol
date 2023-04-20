@@ -6,7 +6,7 @@ import $ from "jquery";
 const Champ = () => {
   let name = useParams();
   const dataRef = useRef();
-  const Bigimg = useRef(); //큰 챔피언 사진
+  const Bigimg = useRef(); //큰 챔피언 사진입니다
   const cmpEnname = useRef(); //영어이름
   const cmpKrname = useRef(); //한글이름
   const [qwer, setQwer] = useState(); //qwer스킬 데이터
