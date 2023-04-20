@@ -5,13 +5,11 @@ import axios from "axios";
 import "../css/Main.scss";
 
 const Main = (props) => {
-  const navi = useNavigate();
-  const navigo = () => {
-    navi("Asdf");
-  };
+
+ 
   useEffect(() => {
     fetch(
-      "https://ddragon.leagueoflegends.com/cdn/13.1.1/data/ko_KR/champion.json" //챔프 전체 데이터api
+      "https://ddragon.leagueoflegends.com/cdn/13.8.1/data/ko_KR/champion.json" //챔프 전체 데이터api
     )
       .then((Response) => Response.json())
       .then((Response) => lolMain(Response))
@@ -32,9 +30,8 @@ const Main = (props) => {
   function lolMain(test) {
     const champ = test.data;
     const ChampUrl =
-      "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/";
+      "https://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/";
 
-    console.log(champ + "dfsdfsdf");
 
     const ChampName = [];
     for (let name in champ) {
@@ -64,7 +61,6 @@ const Main = (props) => {
   const category = (tags) => {
     if (tags == "전체보기") {
       setCatestate(test5);
-      console.log("전체보기", catestate);
     } else {
       setCatestate(
         test5.filter((d) => {
@@ -73,8 +69,6 @@ const Main = (props) => {
       );
     } //카테고리 함수
 
-    console.log(tags);
-    console.log(catestate);
   };
 
   const [text, setText] = useState("");//input값
@@ -100,7 +94,6 @@ const Main = (props) => {
 
   
 
-  console.log(catestate);
 
   return (
     <>
@@ -176,7 +169,7 @@ const Main = (props) => {
                     <Link to={`/Champ/${obj.en}`} key={k}>
                       <div className="imgbox01">
                         <img
-                          src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${obj.en}.png`}
+                          src={`https://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/${obj.en}.png`}
                         ></img>
                         <span>{[obj.kr]}</span>
                       </div>
@@ -187,7 +180,7 @@ const Main = (props) => {
                     <Link to={`/Champ/${obj.en}`} key={k}>
                       <div className="imgbox01">
                         <img
-                          src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${obj.en}.png`}
+                          src={`https://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/${obj.en}.png`}
                         ></img>
                         <span>{[obj.kr]}</span>
                       </div>

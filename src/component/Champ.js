@@ -14,13 +14,13 @@ const Champ = () => {
   const [skindata, setSkindata] = useState(); //스킨 데이터
   const [skillclick, setSkillclick] = useState(); //스킬클릭
   const [skinclick, setSkinclick] = useState({ num: 0 }); //스킨클릭
-  const testH = useRef(); //이미지 높이값
+  const testheight = useRef(); //이미지 높이값
 
   const ChampName = name.name;
-  const cmpUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/"; //챔프 url
-  const spellUrl = "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/spell/"; //스킬 url
+  const cmpUrl = "https://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/"; //챔프 url
+  const spellUrl = "https://ddragon.leagueoflegends.com/cdn/13.8.1/img/spell/"; //스킬 url
   const passiveUrl =
-    "https://ddragon.leagueoflegends.com/cdn/13.1.1/img/passive/"; //패시브 url
+    "https://ddragon.leagueoflegends.com/cdn/13.8.1/img/passive/"; //패시브 url
   const splashUrl =
     "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"; //일러스트 url변경사항
   //챔프 이름 ref으로 담기
@@ -30,28 +30,23 @@ const Champ = () => {
     dataRef.current = [ChampData.data];
 
     let datas = dataRef.current[0];
-    console.log(datas[ChampName], "챔프 데이터");
     cmpEnname.current = datas[ChampName].id;
     cmpKrname.current = datas[ChampName].name;
-    console.log(cmpEnname.current, "챔프영문이름 ref");
-    console.log(cmpKrname.current, "챔프 한글이름 ref");
 
     const splash = splashUrl + datas[ChampName].id + "_0.jpg";
     Bigimg.current = splash;
     setQwer(datas[ChampName]);
     const spelldata = datas[ChampName].spells;
-    console.log(spelldata, "asdsda");
     setSkilldata(spelldata);
 
     const skindata = datas[ChampName].skins;
     setSkindata(skindata);
-    console.log(skindata, "당장필요한거"); //스킨 담겨있는 배열
     setSkillclick(datas[ChampName].passive);
   }
 
   useEffect(() => {
     document.onreadystatechange = () => {
-      console.log(testH.current.clientHeight);
+      console.log(testheight.current.clientHeight);
     };
 
     //미디어 쿼리
@@ -67,7 +62,7 @@ const Champ = () => {
 
   useEffect(() => {
     fetch(
-      `https://ddragon.leagueoflegends.com/cdn/13.1.1/data/ko_KR/champion/${ChampName}.json` //누른 챔피언의 상세 api
+      `https://ddragon.leagueoflegends.com/cdn/13.8.1/data/ko_KR/champion/${ChampName}.json` //누른 챔피언의 상세 api
     )
       .then((Response) => Response.json())
       .then((Response) => Champion(Response));
@@ -95,7 +90,6 @@ const Champ = () => {
     let Iphone13 = window.matchMedia("(min-width:512px)").matches;
     const thumb = document.querySelectorAll(".skinshow02 > div");
 
-    console.log(thumb, "asdasd");
       if (Iphone13 == true) {
         $(".skinshow02").css({
           transform: `translateY(-${thumb[key].offsetTop}px)`,
@@ -113,7 +107,6 @@ const Champ = () => {
 
  
 
-  console.log($(".skinshow01").height());
   let skinheight = $(".skinshow02").height(); //스킨+이름 높이
   let hiddenH = $(".skinshow03 img").height(); //스킨이미지 높이
 
@@ -213,7 +206,7 @@ const Champ = () => {
           </div>
           <div className="skinshow03">
             <img
-              testH={testH}
+              testheight={testheight}
               src={`${splashUrl}${cmpEnname.current}_${
                 skinclick && skinclick.num
               }.jpg`}
